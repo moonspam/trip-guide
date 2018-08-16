@@ -1,9 +1,12 @@
 @charset 'utf-8';
 
-// Import Webfont
-@import url('https://fonts.googleapis.com/css?family=Poor+Story');
-
 // Reset CSS
 @import '~compass-mixins/lib/compass/reset';
 
+@import "~bootstrap/scss/bootstrap";
+
+// Import Webfont
+@import url('https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css');
+
 // Layout
+* { font-family: 'Spoqa Han Sans', sans-serif }
