@@ -78,6 +78,9 @@ module.exports = (env) => {
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
+      Holder: 'holderjs',
+      holder: 'holderjs',
+      'window.Holder': 'holderjs',
     }),
   ];
 
