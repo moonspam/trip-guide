@@ -18,6 +18,76 @@
   ${require('html-loader?interpolate!./_template/header.html')}
 
   <main role="main">
+    <div class="tour_view">
+      <div class="container">
+        <section>
+
+          <h1 class="sr-only">여행 일정</h1>
+
+          <div class="btn-group" role="group" aria-label="여행 일자 버튼 묶음">
+            <button type="button" class="btn btn-secondary">전체</button>
+            <div class="btn-group" role="group">
+              <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">일차별</button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">1일차</a>
+                <a class="dropdown-item" href="#">2일차</a>
+                <a class="dropdown-item" href="#">3일차</a>
+                <a class="dropdown-item" href="#">4일차</a>
+                <a class="dropdown-item" href="#">5일차</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 1 Day -->
+          <h2 class="my-3 text-muted"><small><i class="far fa-calendar mr-2"></i>9월 7일 금요일</small></h2>
+          <div class="card my-2">
+            <div class="card-header bg-secondary text-white">
+              <div class="row">
+                <div class="col"><i class="fas fa-clock"></i> 23:20</div>
+                <div class="col text-right"><i class="fas fa-map-marker-alt"></i> 인천국제공항</div>
+              </div>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title mb-0"><i class="fas fa-plane-departure"></i> 출국</h3>
+            </div>
+          </div>
+
+          <!-- 2 Day -->
+          <h2 class="my-3 text-muted"><small><i class="far fa-calendar mr-2"></i>9월 7일 금요일</small></h2>
+          <div class="card my-2">
+            <div class="card-header bg-secondary text-white">
+              <div class="row">
+                <div class="col"><i class="fas fa-clock"></i> 04:40</div>
+                <div class="col text-right"><i class="fas fa-map-marker-alt"></i> 창이국제공항</div>
+              </div>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title mb-0"><i class="fas fa-plane-arrival"></i> 싱가포르 도착</h3>
+            </div>
+            <ul class="list-group list-group-flush text-muted">
+              <li class="list-group-item"><i class="fas fa-check-circle mr-2 text-success"></i>공항면세점에서 맥주사기</li>
+              <li class="list-group-item"><i class="fas fa-check-circle mr-2 text-success"></i>환전하기</li>
+              <li class="list-group-item"><i class="fas fa-check-circle mr-2 text-success"></i>이지링크구매</li>
+              <li class="list-group-item"><i class="fas fa-check-circle mr-2 text-success"></i>유심구매</li>
+            </ul>
+          </div>
+          <div class="card my-2">
+            <div class="card-header bg-secondary text-white">
+              <div class="row">
+                <div class="col"><i class="fas fa-clock"></i> 오전일정</div>
+                <div class="col text-right"><i class="fas fa-map-marker-alt"></i> 칼튼호텔</div>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d63819.97068991142!2d103.88641350419637!3d1.3270691610532201!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e3!4m5!1s0x31da17d693d0cde3%3A0xd6d6dd5e414e4503!2zQWlycG9ydCBCbHZkLCDsi7HqsIDtj6zrpbQg7LC97J20IOq1reygnOqzte2VrSAoU0lOKSDsi7HqsIDtj6zrpbQ!3m2!1d1.3644201999999999!2d103.99153079999999!4m5!1s0x31da19a45876e5a1%3A0x38e2c6f5d75da1be!2z7Iux6rCA7Y-s66W0IEJyYXMgQmFzYWggUm9hZCwg7Lm87YS0IO2YuO2FlCDsi7HqsIDtj6zrpbQ!3m2!1d1.2959559!2d103.85281889999999!5e0!3m2!1sko!2skr!4v1535358948903"></iframe>
+              </div>
+            </div>
+          </div>
+
+        </section>
+      </div>
+    </div>
   </main>
 
   ${require('html-loader?interpolate!./_template/footer.html')}

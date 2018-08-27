@@ -18,5 +18,5 @@ bar.animate(1, { duration: 800 }, () => {
 });
 
 $(document).ready(() => {
-  console.log('hello world');
+  $('[data-toggle="tooltip"]').tooltip();
 });
