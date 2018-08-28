@@ -24,10 +24,10 @@
 
           <h1 class="sr-only">여행 일정</h1>
 
-          <div class="btn-group" role="group" aria-label="여행 일자 버튼 묶음">
-            <button type="button" class="btn btn-secondary">전체</button>
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-secondary active">전체</button>
             <div class="btn-group" role="group">
-              <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">일차별</button>
+              <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">일차별</button>
               <div class="dropdown-menu">
                 <a class="dropdown-item" href="#">1일차</a>
                 <a class="dropdown-item" href="#">2일차</a>
@@ -38,51 +38,93 @@
             </div>
           </div>
 
-          <!-- 1 Day -->
-          <h2 class="my-3 text-muted"><small><i class="far fa-calendar mr-2"></i>9월 7일 금요일</small></h2>
-          <div class="card my-2">
+          <!-- ### 1 Day ### -->
+          <h2 class="mt-4 mb-3 text-muted"><small><i class="far fa-calendar mr-2"></i>9월 7일 금요일</small></h2>
+          <!-- Card -->
+          <div class="card my-2 shadow-sm">
             <div class="card-header bg-secondary text-white">
               <div class="row">
-                <div class="col"><i class="fas fa-clock"></i> 23:20</div>
-                <div class="col text-right"><i class="fas fa-map-marker-alt"></i> 인천국제공항</div>
+                <div class="col-auto mr-auto"><i class="fas fa-clock mr-2"></i>23:20</div>
+                <div class="col-auto text-right"><i class="fas fa-map-marker-alt mr-2"></i><a href="https://namu.wiki/w/%EC%9D%B8%EC%B2%9C%EA%B5%AD%EC%A0%9C%EA%B3%B5%ED%95%AD" target="_blank" class="text-light"><u>인천국제공항</u></a></div>
               </div>
             </div>
             <div class="card-body">
-              <h3 class="card-title mb-0"><i class="fas fa-plane-departure"></i> 출국</h3>
+              <h3 class="card-title mb-0"><i class="fas fa-plane-departure mr-2"></i>대한민국 출국</h3>
             </div>
           </div>
 
-          <!-- 2 Day -->
-          <h2 class="my-3 text-muted"><small><i class="far fa-calendar mr-2"></i>9월 7일 금요일</small></h2>
-          <div class="card my-2">
+          <!-- ### 2 Day ### -->
+          <h2 class="mt-4 mb-3 text-muted"><small><i class="far fa-calendar mr-2"></i>9월 7일 금요일</small></h2>
+          <!-- Card -->
+          <div class="card my-2 shadow-sm">
             <div class="card-header bg-secondary text-white">
               <div class="row">
-                <div class="col"><i class="fas fa-clock"></i> 04:40</div>
-                <div class="col text-right"><i class="fas fa-map-marker-alt"></i> 창이국제공항</div>
+                <div class="col-auto mr-auto"><i class="fas fa-clock mr-2"></i>04:40</div>
+                <div class="col-auto text-right"><i class="fas fa-map-marker-alt mr-2"></i><a href="https://namu.wiki/w/%EC%8B%B1%EA%B0%80%ED%8F%AC%EB%A5%B4%20%EC%B0%BD%EC%9D%B4%20%EA%B3%B5%ED%95%AD" target="_blank" class="text-light"><u>창이국제공항</u></a></div>
               </div>
             </div>
             <div class="card-body">
-              <h3 class="card-title mb-0"><i class="fas fa-plane-arrival"></i> 싱가포르 도착</h3>
+              <h3 class="card-title mb-0"><i class="fas fa-plane-arrival mr-2"></i>싱가포르 도착</h3>
             </div>
             <ul class="list-group list-group-flush text-muted">
               <li class="list-group-item"><i class="fas fa-check-circle mr-2 text-success"></i>공항면세점에서 맥주사기</li>
               <li class="list-group-item"><i class="fas fa-check-circle mr-2 text-success"></i>환전하기</li>
-              <li class="list-group-item"><i class="fas fa-check-circle mr-2 text-success"></i>이지링크구매</li>
-              <li class="list-group-item"><i class="fas fa-check-circle mr-2 text-success"></i>유심구매</li>
+              <li class="list-group-item"><i class="fas fa-check-circle mr-2 text-success"></i>이지링크 구매<button type="button" class="btn btn-warning btn-sm float-right py-0" data-toggle="modal" data-target="#ezlinkModal"><i class="fas fa-info"></i></button></li>
+              <li class="list-group-item"><i class="fas fa-check-circle mr-2 text-success"></i>유심 구매</li>
             </ul>
           </div>
-          <div class="card my-2">
+          <!-- Modal -->
+          <div class="modal fade" id="ezlinkModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">이지링크 가격</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>$5(보증금) + $7(충전금액) = $12<br>충전 시 최소금액 $10<br>$3달러 이하일 때는 결제가 안됨<br>세븐일레븐 구매 시 $10</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Card -->
+          <div class="card my-2 shadow-sm">
             <div class="card-header bg-secondary text-white">
               <div class="row">
-                <div class="col"><i class="fas fa-clock"></i> 오전일정</div>
-                <div class="col text-right"><i class="fas fa-map-marker-alt"></i> 칼튼호텔</div>
+                <div class="col-auto mr-auto"><i class="fas fa-clock mr-2"></i>오전</div>
+                <div class="col-auto text-right"><i class="fas fa-map-marker-alt mr-2"></i>창이국제공항<i class="fas fa-long-arrow-alt-right mx-2"></i>칼튼호텔</div>
               </div>
             </div>
             <div class="card-body">
               <div class="embed-responsive embed-responsive-16by9">
                 <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d63819.97068991142!2d103.88641350419637!3d1.3270691610532201!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e3!4m5!1s0x31da17d693d0cde3%3A0xd6d6dd5e414e4503!2zQWlycG9ydCBCbHZkLCDsi7HqsIDtj6zrpbQg7LC97J20IOq1reygnOqzte2VrSAoU0lOKSDsi7HqsIDtj6zrpbQ!3m2!1d1.3644201999999999!2d103.99153079999999!4m5!1s0x31da19a45876e5a1%3A0x38e2c6f5d75da1be!2z7Iux6rCA7Y-s66W0IEJyYXMgQmFzYWggUm9hZCwg7Lm87YS0IO2YuO2FlCDsi7HqsIDtj6zrpbQ!3m2!1d1.2959559!2d103.85281889999999!5e0!3m2!1sko!2skr!4v1535358948903"></iframe>
               </div>
+              <p class="card-text"></p>
             </div>
+            <ul class="list-group list-group-flush text-muted">
+              <li class="list-group-item">
+                <p class="mb-2">
+                  <span class="badge badge-success">East West Line</span><br>
+                  <small>MRT Station CG2<i class="fas fa-long-arrow-alt-right mx-2"></i>Tanah Merah<i class="fas fa-exchange-alt mx-2"></i></small><br>
+                  <span class="badge badge-success">East West Line</span><br>
+                  <small>Tanah Merah<i class="fas fa-long-arrow-alt-right mx-2"></i>City Hall</small>
+                </p>
+                <p class="m-0"><i class="fas fa-subway mr-2 text-warning"></i>MRT요금 $1.69(1인)</p>
+              </li>
+              <li class="list-group-item"><i class="fas fa-check-circle mr-2 text-success"></i>호텔 짐맡기기</li>
+            </ul>
+          </div>
+          <!-- Card -->
+          <div class="card mb-2 bg-secondary text-white">
+            <div class="card-header"><i class="fas fa-exclamation-triangle mr-2"></i>MRT 탑승 시 주의사항</div>
+            <ul class="list-group list-group-flush text-light">
+              <li class="list-group-item list-group-item-secondary"><i class="far fa-times-circle mr-2"></i>흡연금지</li>
+              <li class="list-group-item list-group-item-secondary"><i class="far fa-times-circle mr-2"></i>음식물 섭취 금지</li>
+              <li class="list-group-item list-group-item-secondary"><i class="far fa-times-circle mr-2"></i>오픈된 음료 반입금지</li>
+              <li class="list-group-item list-group-item-secondary"><i class="far fa-times-circle mr-2"></i>화기류 휴대금지</li>
+            </ul>
           </div>
 
         </section>
