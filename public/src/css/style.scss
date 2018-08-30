@@ -10,7 +10,10 @@
 @import url('https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css');
 
 // Layout
-* { font-family: 'Spoqa Han Sans', sans-serif }
+* {
+  min-height: 0.01px;
+  font-family: 'Spoqa Han Sans', sans-serif;
+}
 
 #loading-bar {
   position: fixed;
