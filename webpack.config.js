@@ -20,10 +20,10 @@ const siteInfo = {
   keywords: '해외여행, 국내여행, 투어, 일정, 공유, 힐링',
   og: {
     locale: 'ko_KR',
-    url: 'http://trip.moonspam.me/',
+    url: 'https://cdn.rawgit.com/moonspam/trip-guide/master/public/dist/',
     type: 'website',
     img: {
-      url: 'http://trip.moonspam.me/',
+      url: 'https://cdn.rawgit.com/moonspam/trip-guide/master/public/dist/',
       type: 'image/jpeg',
       width: '1280',
       height: '720',
