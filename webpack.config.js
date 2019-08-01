@@ -8,7 +8,6 @@ const outputPath = './public/dist/';
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlBeautifyPlugin = require('html-beautify-webpack-plugin');
 
@@ -61,20 +60,6 @@ module.exports = (env) => {
       },
     ]),
     new ExtractTextPlugin('./css/styles.css'),
-    new FaviconsWebpackPlugin({
-      logo: './img/favicon.png',
-      emitStats: false,
-      icons: {
-        android: false,
-        appleIcon: true,
-        appleStartup: false,
-        coast: false,
-        favicons: true,
-        firefox: false,
-        windows: false,
-        yandex: false,
-      },
-    }),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
