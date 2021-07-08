@@ -3,11 +3,24 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  ${require('html-loader?interpolate!./_template/share.html')}
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" type="image/png" sizes="32x32" href="<%=require('./img/favicon-32x32.png')%>">
+  <meta name="description" content="@@_description">
+  <meta name="keywords" content="@@_keywords">
+  <meta name="author" content="@@_author">
+  <meta property="og:locale" content="@@_og_locale">
+  <meta property="og:title" content="@@_title">
+  <meta property="og:url" content="@@_og_url">
+  <meta property="og:type" content="@@_og_type">
+  <meta property="og:description" content="@@_description">
+  <meta property="og:image" content="@@_og_img_url<%=require('./img/share.jpg')%>">
+  <meta property="og:image:type" content="@@_og_img_type">
+  <meta property="og:image:width" content="@@_og_img_width">
+  <meta property="og:image:height" content="@@_og_img_height">
+  <meta property="og:image:alt" content="@@_og_img_alt">
   <title>@@_title</title>
-  ${require('html-loader?interpolate!./_template/assets.html')}
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 </head>
 
 <body class="bg-light">
@@ -15,7 +28,40 @@
   <div id="loading-bar"></div>
   <h1 class="sr-only">스팸투어 싱가포르</h1>
 
-  ${require('html-loader?interpolate!./_template/header_sg.html')}
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <h1 class="sr-only">메뉴</h1>
+      <!-- Navbar content -->
+      <a class="navbar-brand" href="index.html"><img src="<%=require('./img/favicon.png')%>" width="30" height="30" class="d-inline-block align-top" alt="스팸투어"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">홈</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="tour_singapore.html">싱가포르</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">베트남</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">군산</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  
+    <div class="jumbotron text-center" style="background:url('https://images.pexels.com/photos/17668/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260') no-repeat center center/cover">
+      <div class="container">
+        <p class="h1">스팸투어</p>
+        <p class="lead">해외, 국내 여행 기록 저장소 📷</p>
+      </div>
+    </div>
+  </header>
 
   <main role="main">
     <div class="tour_view">
@@ -395,7 +441,14 @@
     </div>
   </main>
 
-  ${require('html-loader?interpolate!./_template/footer.html')}
+  <footer class="text-muted">
+    <div class="container">
+      <p class="float-right">
+        <a href="#">맨위로</a>
+      </p>
+      <p>&copy; SpamTour 2018</p>
+    </div>
+  </footer>
 
 </body>
 

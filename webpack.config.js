@@ -1,6 +1,6 @@
 const path = require('path');
-const webpack = require('webpack');
 const fs = require('fs');
+const webpack = require('webpack');
 
 const sourcePath = './public/src/';
 const outputPath = './public/dist/';
@@ -11,11 +11,12 @@ const copyStateFont = fs.existsSync('./public/src/font') && fs.lstatSync('./src/
 console.log(`CopyWebpackPlugin(libs) : ${copyStateLibs}`);
 console.log(`CopyWebpackPlugin(font) : ${copyStateFont}`);
 
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const HtmlBeautifyPlugin = require('html-beautify-webpack-plugin');
+const HtmlBeautifyPlugin = require('@nurminen/html-beautify-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 // 사이트 기본 정보 입력
 const siteInfo = {
@@ -42,8 +43,8 @@ const siteInfo = {
 };
 
 function generateHtmlPlugins(templateDir) {
-  const templateFiles = fs.readdirSync(templateDir).filter(file => file.substr(-5) === '.html');
-  return templateFiles.map(file => new HtmlWebpackPlugin({
+  const templateFiles = fs.readdirSync(templateDir).filter((file) => file.substr(-5) === '.html');
+  return templateFiles.map((file) => new HtmlWebpackPlugin({
     template: `./${file}`,
     filename: `${file}`,
     minify: {
@@ -55,11 +56,16 @@ function generateHtmlPlugins(templateDir) {
   }));
 }
 
-module.exports = (env) => {
+module.exports = (env, argv) => {
   // Webpack 플러그인
   const plugins = [
-    new CleanWebpackPlugin([outputPath]),
-    new ExtractTextPlugin('./css/styles.css'),
+    new ESLintPlugin(),
+    new CleanWebpackPlugin({
+      protectWebpackAssets: false,
+    }),
+    new MiniCssExtractPlugin({
+      filename: './css/style.css',
+    }),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
@@ -150,38 +156,45 @@ module.exports = (env) => {
       filename: './js/[name].bundle.js',
       path: path.resolve(__dirname, outputPath),
     },
+    target: ['web', 'es5'],
     devServer: {
-      open: true,
-      contentBase: path.resolve(__dirname, outputPath),
-      watchContentBase: true,
-      inline: true,
+      static: {
+        directory: path.resolve(__dirname, sourcePath),
+        watch: true,
+      },
     },
-    mode: env.NODE_ENV === 'development' ? 'development' : 'production',
-    devtool: env.NODE_ENV === 'development' ? 'source-map' : false,
+    infrastructureLogging: {
+      level: 'warn',
+    },
+    mode: argv.mode === 'development' ? 'development' : 'production',
+    devtool: argv.mode === 'development' ? 'source-map' : false,
+    optimization: {
+      minimize: argv.mode === 'production',
+    },
+    performance: {
+      hints: argv.mode === 'production' ? 'warning' : false,
+    },
     module: {
       rules: [
         {
-          test: /\.scss$/,
-          use: ExtractTextPlugin.extract({
-            use: [{
-              loader: 'css-loader',
-              options: {
-                minimize: env.NODE_ENV === 'production',
-                sourceMap: env.NODE_ENV === 'development',
+          test: /\.(sa|sc|c)ss$/,
+          use: [
+            argv.mode === 'development' ? 'style-loader'
+              : {
+                loader: MiniCssExtractPlugin.loader,
+                options: {
+                  publicPath: '/',
+                },
               },
-            }, {
+            'css-loader',
+            {
               loader: 'sass-loader',
               options: {
-                sourceMap: env.NODE_ENV === 'development',
+                // eslint-disable-next-line global-require
+                implementation: require('sass'),
               },
-            }],
-            fallback: 'style-loader',
-            publicPath: '../',
-          }),
-        },
-        {
-          test: /\.css$/,
-          use: ['style-loader', 'css-loader'],
+            },
+          ],
         },
         {
           test: /\.(jpe?g|png|gif)$/,
@@ -190,20 +203,15 @@ module.exports = (env) => {
           options: {
             name: env.NODE_ENV === 'development' ? '[name].[ext]' : '[name].[ext]?[hash]',
             outputPath: './img/',
+            esModule: false,
           },
-        },
-        {
-          enforce: 'pre',
-          test: /\.js$/,
-          exclude: /node_modules/,
-          loader: 'eslint-loader',
         },
         {
           test: /\.js$/,
           exclude: /node_modules/,
           loader: 'babel-loader',
           options: {
-            presets: ['babel-preset-env'],
+            configFile: './.babelrc',
           },
         },
       ],
